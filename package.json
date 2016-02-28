@@ -1,0 +1,38 @@
+{
+  "name": "aws-lambda-api-example",
+  "version": "0.0.1",
+  "description": "Example project to deploy an API to AWS Lambda",
+  "scripts": {
+    "build": "gulp build",
+    "deploy": "npm run clean && gulp build && gulp handlers && gulp zip && gulp deploy && npm run clean",
+    "clean": "rm -rf .dist && rm -rf .archive"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidvanleeuwen/aws-lambda-api-example.git"
+  },
+  "author": "David van Leeuwen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/davidvanleeuwen/aws-lambda-api-example/issues"
+  },
+  "homepage": "https://github.com/davidvanleeuwen/saws-lambda-api-example#readme",
+  "devDependencies": {
+    "async": "^1.5.2",
+    "aws-sdk": "^2.2.33",
+    "babel-core": "^6.4.5",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-stage-0": "^6.3.13",
+    "dox": "^0.8.0",
+    "gulp": "^3.9.0",
+    "gulp-babel": "^6.1.2",
+    "gulp-replace": "^0.5.4",
+    "gulp-zip": "^3.2.0",
+    "minimist": "^1.2.0",
+    "run-sequence": "^1.1.5"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.5.0",
+    "co": "^4.6.0"
+  }
+}
