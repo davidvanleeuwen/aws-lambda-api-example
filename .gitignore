@@ -23,5 +23,7 @@ node_modules
 event.json
 .DS_Store
 .vagrant
+.archive
+.dist
 
 *.db

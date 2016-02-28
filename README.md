@@ -14,7 +14,7 @@ Just clone the repo and install the necessary node modules:
 ```shell
 $ git clone https://github.com/davidvanleeuwen/aws-lambda-api-example.git
 $ cd aws-lambda-api-example
-$ npm install                   # Install Node modules listed in ./package.json (may take a while the first time)
+$ npm install             # Install Node modules listed in ./package.json (may take a while the first time)
 ```
 
 Usage
@@ -22,7 +22,7 @@ Usage
 
 * Make sure you have the right credentials as default profile in `~/.aws/credentials`
 * Add handler functions or generators to complete your API.
-* Deploying to an stage like `npm run deploy -- --stage=staging`.
+* Deploying to an stage like `npm run deploy:staging`.
 
 Structure
 ---------

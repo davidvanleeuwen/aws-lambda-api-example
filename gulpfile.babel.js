@@ -19,17 +19,19 @@ const paths = {
 }
 
 const config = {
-  s3_bucket: 'your_bucket_name_here'
+  s3_bucket: 'aws-example-builds',
+  region: 'us-east-1'
 }
 
 // Arguments
 let knownOptions = {
   string: 'stage',
   default: {
-    stage: process.env.NODE_ENV || 'test'
+    stage: process.env.NODE_ENV || 'staging'
   }
 }
 const argv = minimist(process.argv.slice(2), knownOptions)
+
 
 // Zipfile name
 const zipfileName = `${execSync('git rev-parse --short HEAD').toString().replace(/\r?\n|\r/, '')}-${argv.stage}.zip`
@@ -130,7 +132,7 @@ gulp.task('zip', () => {
 
 // 4. Deploy everything
 gulp.task('deploy', () => {
-  let lambda = new AWS.Lambda()
+  let lambda = new AWS.Lambda({region: config.region})
 
   return new Promise(function(resolve, reject) {
     let body = fs.createReadStream(`${paths.archive}/${zipfileName}`)

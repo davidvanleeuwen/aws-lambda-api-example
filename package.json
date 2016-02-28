@@ -4,7 +4,8 @@
   "description": "Example project to deploy an API to AWS Lambda",
   "scripts": {
     "build": "gulp build",
-    "deploy": "npm run clean && gulp build && gulp handlers && gulp zip && gulp deploy && npm run clean",
+    "deploy:staging": "npm run clean && gulp build --stage=staging && gulp handlers --stage=staging && cp package.json .dist/package.json && cd .dist && npm install --production && gulp zip --stage=staging && gulp deploy --stage=staging && npm run clean",
+    "deploy:production": "npm run clean && gulp build --stage=production && gulp handlers --stage=production && cp package.json .dist/package.json && cd .dist && npm install --production && gulp zip --stage=production && gulp deploy --stage=production && npm run clean",
     "clean": "rm -rf .dist && rm -rf .archive"
   },
   "repository": {
